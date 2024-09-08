@@ -24,6 +24,11 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+
+}
+
+.sidebarOpen ~ body {
+  margin-left: 250px; /* ajuste conforme o tamanho do menu lateral aberto */
 }
 
 @layer utilities {
