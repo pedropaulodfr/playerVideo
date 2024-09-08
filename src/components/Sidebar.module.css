@@ -1,0 +1,65 @@
+.sidebarClosed {
+  width: 10px;
+  height: 100vh;
+  background-color: #333;
+  color: #fff;
+  transition: width 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.sidebarOpen {
+  width: 250px;
+  height: 100vh;
+  background-color: #333;
+  color: #fff;
+  transition: width 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.menu {
+  padding: 20px;
+}
+
+.menuList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menuList {
+  list-style-type: none;
+  padding: 0;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.menuListClosed {
+  list-style-type: none;
+  padding: 0;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none; /* Impede que os links sejam clicados */
+}
+
+.menuItem {
+  margin: 20px 0;
+}
+
+.menuLink {
+  color: white;
+  text-decoration: none;
+}
+
+.toggleButton {
+  position: absolute;
+  top: 20px;
+  right: -40px;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
