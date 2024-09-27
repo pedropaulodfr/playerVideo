@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { HomeContext } from "./context/HomeContext";
 import { FaRegCirclePlay, FaRegCirclePause } from "react-icons/fa6";
 import { BiSkipNextCircle, BiSkipPreviousCircle } from "react-icons/bi";
@@ -18,16 +18,15 @@ export default function Home() {
   const { volume, onChangeVolume } = useContext(HomeContext);
   const { botaoVolume, onChangeBotaoVolume } = useContext(HomeContext);
   const { musicaSelecionada } = useContext(HomeContext);
-  const { onChangeAudio } = useContext(HomeContext);
+  const { onChangeAudio, currentTime, duration, onSeek } = useContext(HomeContext);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>{playing ? "Pause" : "Executando"}</h1>
       <div style={{zIndex: 9999}}><Sidebar/></div>
 
       <div className="info-music">
-        <div className="cover-music" style={{width: "80vw"}}>
-          <img src={musics[musicaSelecionada].image} width={400} />
+        <div className="cover-music"  style={{width: "80vw"}}>
+          <img src={musics[musicaSelecionada].image} width={400}/>
         </div>
         <div className="description-music">
           <h1 style={{fontSize: "1.3em", fontWeight: "bold"}}>{musics[musicaSelecionada].name}</h1>
@@ -35,7 +34,12 @@ export default function Home() {
         </div>
       </div>
 
-      <Slider defaultValue={0} aria-label="" />
+      <Slider 
+        value={currentTime} 
+        max={duration} 
+        onChange={onSeek}  
+        style={{color: '#333333'}}
+      />
 
       <div className="flex flex-row ">
         <button className="m-2">
@@ -56,8 +60,10 @@ export default function Home() {
         <div className="slider-volume">
           <Box sx={{ width: 200 }}>
             <Stack spacing={2} direction="row" sx={{ alignItems: "center", mb: 1 }} >
-              {volume > 50 ? <VolumeUp /> : volume != 0 ? <VolumeDown /> : <VolumeMute />}
-              <Slider aria-label="Volume" value={volume} onChange={onChangeVolume}/>
+              <button onClick={() => {onChangeVolume(new Event(''), 0);}}>
+                {volume > 50 ? <VolumeUp /> : volume != 0 ? <VolumeDown /> : <VolumeMute />}
+              </button>
+              <Slider aria-label="Volume" value={volume} onChange={onChangeVolume} style={{color: '#333333'}}/>
             </Stack>
           </Box>
         </div>
