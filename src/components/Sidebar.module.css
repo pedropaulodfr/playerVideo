@@ -27,13 +27,10 @@
 .menuList {
   list-style-type: none;
   padding: 0;
-}
-
-.menuList {
-  list-style-type: none;
-  padding: 0;
   transition: opacity 0.3s ease;
   opacity: 1;
+  max-height: 100vh; 
+  overflow: auto;
 }
 
 .menuListClosed {
