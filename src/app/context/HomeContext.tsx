@@ -57,13 +57,26 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
     if (acao === "next")
     {
       setVideoSelecionado(videos[posicao + 1])
+      localStorage.setItem("ultimoVideo", JSON.stringify(videos[posicao + 1]))
     } else if (acao === "prev" && posicao !== 0) {
       setVideoSelecionado(videos[posicao - 1])
-    } else if (acao === "load")
-    {
+      localStorage.setItem("ultimoVideo", JSON.stringify(videos[posicao - 1]))
+    } else if (acao === "load") {
       setVideoSelecionado(videoAtual)
+      localStorage.setItem("ultimoVideo", JSON.stringify(videoAtual))
     }
   };
+
+  useEffect(() => {
+    const ultimoVideo = localStorage.getItem("ultimoVideo")
+    
+    if (ultimoVideo != null) {
+      const ultimoVideoJSON = JSON.parse(ultimoVideo)
+
+      onChangeVideo(ultimoVideoJSON, "load")
+    }
+    
+  }, [])
 
   return (
     <HomeContext.Provider
