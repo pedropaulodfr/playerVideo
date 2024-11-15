@@ -28,7 +28,6 @@ type ProviderProps = {
 };
 
 const HomeContextProvider = ({ children }: ProviderProps) => {
-  const [playing, setPlaying] = useState<boolean>(true);
   const [volume, setVolume] = useState<number>(1);
   const [botaoVolume, setBotaoVolume] = useState<boolean>(false);
   const [videoSelecionado, setVideoSelecionado] = useState<Video>(videos[0])

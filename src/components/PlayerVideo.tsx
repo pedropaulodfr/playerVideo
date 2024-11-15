@@ -1,5 +1,4 @@
 import React, { useContext, useRef, useState } from "react";
-import { RiFullscreenFill } from "react-icons/ri";
 
 interface PlayerVideoProps {
     videoSrc: string; 
