@@ -5,9 +5,10 @@ interface PlayerVideoProps {
     mute: boolean;
     play: boolean;
     volume: number;
+    fullScreen: boolean;
   }
 
-const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, play, volume }) => {
+const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, play, volume, fullScreen }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     
     if (play) {
@@ -20,13 +21,21 @@ const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, play, volume 
         videoRef.current.volume = volume;
     }
 
+    // Função para alternar para fullscreen ao dar duplo clique
+    if (videoRef.current && fullScreen) {
+      if (videoRef.current.requestFullscreen) {
+        videoRef.current.requestFullscreen();
+      }
+    }
+
   return (
-    <div style={{ maxWidth: "100%", maxHeight: "100%" }}>
-      <video
+    <div className="flex flex-col justify-center items-center" style={{ maxWidth: "100%", maxHeight: "100%"}}>
+      <video 
+        className="player-video"
         ref={videoRef}
         width="100%"
         controls
-        autoPlay
+        autoPlay = {false}
         loop
         muted={mute}
         src={`${videoSrc}`} // Caminho do vídeo na pasta public

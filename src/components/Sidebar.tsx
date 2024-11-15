@@ -17,7 +17,7 @@ const Sidebar: React.FC = () => {
   return (
     <div className={isOpen ? styles.sidebarOpen : styles.sidebarClosed}>
       <button onClick={toggleSidebar} className={styles.toggleButton}>
-        {isOpen ? <IoCloseSharp style={{ color: "red" }} /> : <FcNext />}
+        {isOpen ? <IoCloseSharp color="red" /> : <FcNext />}
       </button>
       <nav className={styles.menu}>
         <ul className={isOpen ? styles.menuList : styles.menuListClosed}>
