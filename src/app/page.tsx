@@ -1,10 +1,10 @@
 "use client";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { HomeContext } from "./context/HomeContext";
 import { FaRegCirclePlay, FaRegCirclePause } from "react-icons/fa6";
 import { BiSkipNextCircle, BiSkipPreviousCircle } from "react-icons/bi";
-import { videos } from './dados/video'
+import { RiFullscreenFill, RiMoreFill  } from "react-icons/ri";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Slider from "@mui/material/Slider";
@@ -18,48 +18,54 @@ import PlayerVideo from "@/components/PlayerVideo";
 export default function Home() {
   const { videoSelecionado, onChangeVideo, onChangePlay } = useContext(HomeContext);
   const { volume, onChangeVolume, botaoVolume, onChangeBotaoVolume } = useContext(HomeContext);
+  const [more, setMore] = useState(false)
+  const [fullScreen, setFullScreen] = useState(false)
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center p-24">
       <div style={{zIndex: 9999}}><Sidebar/></div>
 
-      <div className="info-music">
-        <div className="cover-music"  style={{width: "80vw"}}>
-          <PlayerVideo videoSrc={videoSelecionado.urlVideo} mute={false} play={videoSelecionado.play} volume={volume} />
-        </div>
-        <div className="description-music">
-          <h1 style={{fontSize: "1.3em", fontWeight: "bold"}}>{videoSelecionado.name}</h1>
-          <h2 style={{fontSize: "1em", fontWeight: "normal"}}>{videoSelecionado.author}</h2>
-        </div>
-      </div>
+      <div className="flex flex-col justify-center items-center">
+        <section className="info-music">
+          <div className="cover-music"  style={{width: "80vw"}}>
+            <PlayerVideo videoSrc={videoSelecionado.urlVideo} mute={false} play={videoSelecionado.play} volume={volume} fullScreen={fullScreen} />
+          </div>
+          <div className="description-music">
+            <h1 style={{fontSize: "1.3em", fontWeight: "bold"}}>{videoSelecionado.name}</h1>
+            <h2 style={{fontSize: "1em", fontWeight: "normal"}}>{videoSelecionado.author}</h2>
+          </div>
+        </section>
 
-      <div className="flex flex-row">
-        <button className="m-2" onClick={() => onChangeVideo(videoSelecionado, "prev")}>
-          <BiSkipPreviousCircle size={45} />
-        </button>
-        <button className="m-2" onClick={() => onChangePlay()}>
-          {videoSelecionado.play ? <FaRegCirclePause size={60} /> : <FaRegCirclePlay size={60} />}
-        </button>
-        <button className="m-2" onClick={() => onChangeVideo(videoSelecionado, "next")}>
-          <BiSkipNextCircle size={45} />
-        </button>
-        <button onClick={onChangeBotaoVolume}>
-          {volume > 50 ? <VolumeUp /> : volume != 0 ? <VolumeDown /> : <VolumeMute />}
-        </button>
-      </div>
+        <section className="flex flex-row justify-between">
+          <div className="controles flex flex-row">
+            <button className="m-2" onClick={() => onChangeVideo(videoSelecionado, "prev")}><BiSkipPreviousCircle size={45} /></button>
+            <button className="m-2" onClick={() => onChangePlay()}>{videoSelecionado.play ? <FaRegCirclePause size={60} /> : <FaRegCirclePlay size={60} />}</button>
+            <button className="m-2" onClick={() => onChangeVideo(videoSelecionado, "next")}><BiSkipNextCircle size={45} /></button>
+            <button className="m-2" onClick={() => setMore(!more)}><RiMoreFill size={25} color="#333" /></button>
+            {more && (
+              <>
+                <button className="m-5" onClick={onChangeBotaoVolume}> 
+                  {(volume * 100) > 50 ? <VolumeUp style={{color: "#333"}} /> : volume != 0 ? <VolumeDown style={{color: "#333"}} /> : <VolumeMute style={{color: "#333"}} />}
+                </button>
+                <button onClick={() => setFullScreen(!fullScreen)}><RiFullscreenFill color="#333" size={25} /></button>
+              </>
+            )}
+          </div>
+        </section>
 
-      {botaoVolume && (
-        <div className="slider-volume">
-          <Box sx={{ width: 200 }}>
-            <Stack spacing={2} direction="row" sx={{ alignItems: "center", mb: 1 }} >
-              <button onClick={() => {onChangeVolume(new Event(''), 0);}}>
-                {(volume * 100) > 50 ? <VolumeUp /> : volume != 0 ? <VolumeDown /> : <VolumeMute />}
-              </button>
-              <Slider aria-label="Volume" value={volume * 100} onChange={onChangeVolume} style={{color: '#333333'}}/>
-            </Stack>
-          </Box>
-        </div>
-      )}
+        {botaoVolume && (
+          <section className="slider-volume">
+            <Box sx={{ width: 200 }}>
+              <Stack spacing={2} direction="row" sx={{ alignItems: "center", mb: 1 }} >
+                <button onClick={() => {onChangeVolume(new Event(''), 0);}}>
+                  {(volume * 100) > 50 ? <VolumeUp /> : volume != 0 ? <VolumeDown /> : <VolumeMute />}
+                </button>
+                <Slider aria-label="Volume" value={volume * 100} onChange={onChangeVolume} style={{color: '#333333'}}/>
+              </Stack>
+            </Box>
+          </section>
+        )}
+      </div>
     </main>
   );
 }
