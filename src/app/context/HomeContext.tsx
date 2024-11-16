@@ -19,6 +19,10 @@ type HomeContextData = {
   onChangeVolume: (event: Event, newValue: number | number[]) => void;
   botaoVolume: boolean;
   onChangeBotaoVolume: () => void;
+  fullScreen: boolean;
+  onChangeFullScreen: () => void;
+  loop: boolean;
+  onChangeLoop: () => void;
 };
 
 export const HomeContext = createContext({} as HomeContextData);
@@ -31,6 +35,8 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
   const [volume, setVolume] = useState<number>(1);
   const [botaoVolume, setBotaoVolume] = useState<boolean>(false);
   const [videoSelecionado, setVideoSelecionado] = useState<Video>(videos[0])
+  const [fullScreen, setFullScreen] = useState(false)
+  const [loop, setLoop] = useState(false)
 
   const onChangePlay = () => {
       if (videoSelecionado.play) {
@@ -39,7 +45,7 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
       else {
         setVideoSelecionado({...videoSelecionado, play: true})
       }
-    }
+  }
 
   const onChangeVolume = (event: Event, newValue: number | number[]) => {
     if (typeof newValue === "number") {
@@ -66,6 +72,14 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
     }
   };
 
+  const onChangeFullScreen = () => {
+    setFullScreen(!fullScreen)
+  }
+
+  const onChangeLoop = () => {
+    setLoop(!loop)
+  }
+
   useEffect(() => {
     const ultimoVideo = localStorage.getItem("ultimoVideo")
     
@@ -81,12 +95,11 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
     <HomeContext.Provider
       value={{
         onChangePlay,
-        videoSelecionado,
-        onChangeVideo,
-        volume,
-        onChangeVolume,
-        botaoVolume,
-        onChangeBotaoVolume,
+        videoSelecionado, onChangeVideo,
+        volume, onChangeVolume,
+        botaoVolume, onChangeBotaoVolume,
+        fullScreen, onChangeFullScreen,
+        loop, onChangeLoop
       }}
     >
       {children}

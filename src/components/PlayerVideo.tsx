@@ -1,15 +1,16 @@
-import React, { useContext, useRef, useState } from "react";
+import React, {  useContext, useRef } from "react";
+import { HomeContext } from "@/app/context/HomeContext";
 
 interface PlayerVideoProps {
     videoSrc: string; 
     mute: boolean;
     play: boolean;
     volume: number;
-    fullScreen: boolean;
   }
 
-const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, play, volume, fullScreen }) => {
+const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, play, volume }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
+    const { fullScreen, onChangeFullScreen, loop } = useContext(HomeContext)
     
     if (play) {
         videoRef.current?.play();
@@ -21,10 +22,11 @@ const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, play, volume,
         videoRef.current.volume = volume;
     }
 
-    // Função para alternar para fullscreen ao dar duplo clique
+    // Função para alternar para fullscreen
     if (videoRef.current && fullScreen) {
       if (videoRef.current.requestFullscreen) {
         videoRef.current.requestFullscreen();
+        onChangeFullScreen()
       }
     }
 
@@ -36,7 +38,7 @@ const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, play, volume,
         width="100%"
         controls
         autoPlay = {false}
-        loop
+        loop = {loop}
         muted={mute}
         src={`${videoSrc}`} // Caminho do vídeo na pasta public
       >
