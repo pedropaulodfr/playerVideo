@@ -12,6 +12,7 @@ type Video = {
 }
 
 type HomeContextData = {
+  play: boolean;
   onChangePlay: () => void;
   videoSelecionado: Video;
   onChangeVideo: (urlVideoAtual: Video, acao: string) => void;
@@ -37,14 +38,10 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
   const [videoSelecionado, setVideoSelecionado] = useState<Video>(videos[0])
   const [fullScreen, setFullScreen] = useState(false)
   const [loop, setLoop] = useState(false)
+  const [play, setPlay] = useState(false)
 
   const onChangePlay = () => {
-      if (videoSelecionado.play) {
-        setVideoSelecionado({...videoSelecionado, play: false})
-      }
-      else {
-        setVideoSelecionado({...videoSelecionado, play: true})
-      }
+      setPlay(!play)
   }
 
   const onChangeVolume = (event: Event, newValue: number | number[]) => {
@@ -59,8 +56,7 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
 
   const onChangeVideo = (videoAtual: Video, acao: string) => {
     const posicao = videos.findIndex(v => v.urlVideo === videoAtual.urlVideo);
-    if (acao === "next")
-    {
+    if (acao === "next"){
       setVideoSelecionado(videos[posicao + 1])
       localStorage.setItem("ultimoVideo", JSON.stringify(videos[posicao + 1]))
     } else if (acao === "prev" && posicao !== 0) {
@@ -94,7 +90,7 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
   return (
     <HomeContext.Provider
       value={{
-        onChangePlay,
+        play, onChangePlay,
         videoSelecionado, onChangeVideo,
         volume, onChangeVolume,
         botaoVolume, onChangeBotaoVolume,

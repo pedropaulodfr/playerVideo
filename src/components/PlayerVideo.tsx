@@ -1,25 +1,59 @@
-import React, {  useContext, useRef } from "react";
+import React, {  useContext, useEffect, useRef, useState } from "react";
 import { HomeContext } from "@/app/context/HomeContext";
 
 interface PlayerVideoProps {
-    videoSrc: string; 
-    mute: boolean;
-    play: boolean;
-    volume: number;
-  }
+  videoSrc: string; 
+  mute: boolean;
+  volume: number;
+}
 
-const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, play, volume }) => {
+type Video = {
+  name: string;
+  author: string;
+  description: string;
+  urlVideo: string;
+  image: string;
+  play: boolean
+}
+
+const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, volume }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const { fullScreen, onChangeFullScreen, loop } = useContext(HomeContext)
+    const { play, fullScreen, onChangeFullScreen, loop, onChangeVideo, onChangePlay } = useContext(HomeContext)
+
+    // UseEffect para ficar monitorando o tempo de execução
+    useEffect(() => {
+      const video = videoRef.current;
+
+      if (!video) return;
+
+      const handleTimeUpdate = () => {
+        if(video.currentTime == video.duration) {
+          const ultimoVideo = localStorage.getItem("ultimoVideo");
+          if(ultimoVideo) {
+            const videoObj: Video = JSON.parse(ultimoVideo) as Video;
+            onChangeVideo(videoObj, "next")
+          }
+        }
+      };
+
+      video.addEventListener("timeupdate", handleTimeUpdate);
+
+      // Cleanup ao desmontar o componente
+      return () => {
+        video.removeEventListener("timeupdate", handleTimeUpdate);
+      };
+
+    }, [])
+    
     
     if (play) {
-        videoRef.current?.play();
+      videoRef.current?.play();
     } else {
-        videoRef.current?.pause();
+      videoRef.current?.pause();
     }
     
     if(videoRef.current) {
-        videoRef.current.volume = volume;
+      videoRef.current.volume = volume;
     }
 
     // Função para alternar para fullscreen
