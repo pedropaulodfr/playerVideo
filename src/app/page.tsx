@@ -17,7 +17,7 @@ import PlayerVideo from "@/components/PlayerVideo";
 
 
 export default function Home() {
-  const { videoSelecionado, onChangeVideo, onChangePlay, volume, onChangeVolume, botaoVolume, 
+  const { videoSelecionado, onChangeVideo, play, onChangePlay, volume, onChangeVolume, botaoVolume, 
     onChangeBotaoVolume, onChangeFullScreen, loop, onChangeLoop } = useContext(HomeContext);
   const [more, setMore] = useState(false)
 
@@ -28,7 +28,7 @@ export default function Home() {
       <div className="flex flex-col justify-center items-center">
         <section className="info-music">
           <div className="cover-music"  style={{width: "80vw"}}>
-            <PlayerVideo videoSrc={videoSelecionado.urlVideo} mute={false} play={videoSelecionado.play} volume={volume} />
+            <PlayerVideo videoSrc={videoSelecionado.urlVideo} mute={false} volume={volume} />
           </div>
           <div className="description-music">
             <h1 style={{fontSize: "1.3em", fontWeight: "bold"}}>{videoSelecionado.name}</h1>
@@ -39,7 +39,7 @@ export default function Home() {
         <section className="flex flex-row justify-between">
           <div className="controles flex flex-row">
             <button className="m-2" onClick={() => onChangeVideo(videoSelecionado, "prev")}><BiSkipPreviousCircle size={45} /></button>
-            <button className="m-2" onClick={() => onChangePlay()}>{videoSelecionado.play ? <FaRegCirclePause size={60} /> : <FaRegCirclePlay size={60} />}</button>
+            <button className="m-2" onClick={() => onChangePlay()}>{play ? <FaRegCirclePause size={60} /> : <FaRegCirclePlay size={60} />}</button>
             <button className="m-2" onClick={() => onChangeVideo(videoSelecionado, "next")}><BiSkipNextCircle size={45} /></button>
             <button className="m-2" onClick={() => setMore(!more)}><RiMoreFill size={25} color="#333" /></button>
             {more && (
@@ -47,8 +47,8 @@ export default function Home() {
                 <button className="m-5" onClick={onChangeBotaoVolume}> 
                   {(volume * 100) > 50 ? <VolumeUp style={{color: "#333"}} /> : volume != 0 ? <VolumeDown style={{color: "#333"}} /> : <VolumeMute style={{color: "#333"}} />}
                 </button>
-                <button onClick={onChangeFullScreen}><RiFullscreenFill color="#333" size={25} /></button>
-                <button className="m-5" onClick={onChangeLoop}><TiArrowLoop color={loop ? "#000" : "#333"} size={30} /></button>
+                <button onClick={onChangeLoop}><TiArrowLoop color={loop ? "#000" : "#333"} size={30} /></button>
+                <button className="m-5" onClick={onChangeFullScreen}><RiFullscreenFill color="#333" size={25} /></button>
               </>
             )}
           </div>
