@@ -36,7 +36,7 @@ const Sidebar: React.FC = () => {
           <h1 style={{ fontSize: "1.3em", fontWeight: "bold" }}>Lista de Novelas<CiBoxList onClick={toggleNovelas} size={30} style={{cursor: "pointer"}}/></h1>
           {listNovelasOpen &&
             listaNovelas.map((novela, key) => (
-              <label className={`${styles.label}`}>
+              <label key={key} className={`${styles.label}`}>
                 <input className={`${styles.radio}`}
                   type="radio"
                   value={novela}
