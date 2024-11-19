@@ -14,6 +14,7 @@ import VolumeDown from "@mui/icons-material/VolumeDown";
 import VolumeUp from "@mui/icons-material/VolumeUp";
 import Sidebar from '../components/Sidebar';
 import PlayerVideo from "@/components/PlayerVideo";
+import styles from '@/components/PlayerVideo.module.css'
 
 
 export default function Home() {
@@ -37,7 +38,7 @@ export default function Home() {
         </section>
 
         <section className="flex flex-row justify-between">
-          <div className="controles flex flex-row">
+          <div className={`controles flex flex-row ${styles.controles}`}>
             <button className="m-2" onClick={() => onChangeVideo(videoSelecionado, "prev")}><BiSkipPreviousCircle size={45} /></button>
             <button className="m-2" onClick={() => onChangePlay()}>{play ? <FaRegCirclePause size={60} /> : <FaRegCirclePlay size={60} />}</button>
             <button className="m-2" onClick={() => onChangeVideo(videoSelecionado, "next")}><BiSkipNextCircle size={45} /></button>
@@ -51,10 +52,7 @@ export default function Home() {
                 <button className="m-5" onClick={onChangeFullScreen}><RiFullscreenFill color="#333" size={25} /></button>
               </>
             )}
-          </div>
-        </section>
-
-        {botaoVolume && (
+            {botaoVolume && (
           <section className="slider-volume">
             <Box sx={{ width: 200 }}>
               <Stack spacing={2} direction="row" sx={{ alignItems: "center", mb: 1 }} >
@@ -66,6 +64,10 @@ export default function Home() {
             </Box>
           </section>
         )}
+          </div>
+        </section>
+
+        
       </div>
     </main>
   );

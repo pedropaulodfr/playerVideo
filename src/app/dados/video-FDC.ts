@@ -4,7 +4,7 @@ type Video = {
     description: string;
     urlVideo: string;
     image: string;
-    play: boolean
+    cover: string
 }
 
 export const videos: Video[] = [
@@ -14,7 +14,7 @@ export const videos: Video[] = [
         "description": "Capítulo 101",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi101.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 102",
@@ -22,7 +22,7 @@ export const videos: Video[] = [
         "description": "Capítulo 102",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi102.mp4",
         "image": "https://s02.video.glbimg.com/x216/2680081.jpg",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 103",
@@ -30,7 +30,7 @@ export const videos: Video[] = [
         "description": "Capítulo 103",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi103.mp4",
         "image": "https://s02.video.glbimg.com/x216/2682553.jpg",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 104",
@@ -38,7 +38,7 @@ export const videos: Video[] = [
         "description": "Capítulo 104",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi104.mp4",
         "image": "https://s02.video.glbimg.com/x216/2684907.jpg",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 105",
@@ -46,7 +46,7 @@ export const videos: Video[] = [
         "description": "Capítulo 105",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi105.mp4",
         "image": "https://s02.video.glbimg.com/x216/2687174.jpg",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 106",
@@ -54,7 +54,7 @@ export const videos: Video[] = [
         "description": "Capítulo 106",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi106.mp4",
         "image": "https://s02.video.glbimg.com/x216/2689600.jpg",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 107",
@@ -62,7 +62,7 @@ export const videos: Video[] = [
         "description": "Capítulo 107",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi107.mp4",
         "image": "https://s02.video.glbimg.com/x216/2691470.jpg",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 108",
@@ -70,7 +70,7 @@ export const videos: Video[] = [
         "description": "Capítulo 108",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi108.mp4",
         "image": "https://s02.video.glbimg.com/x216/2694228.jpg",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 109",
@@ -78,7 +78,7 @@ export const videos: Video[] = [
         "description": "Capítulo 109",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi109.mp4",
         "image": "https://s02.video.glbimg.com/x216/2696572.jpg",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 110",
@@ -86,7 +86,7 @@ export const videos: Video[] = [
         "description": "Capítulo 110",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi110.mp4",
         "image": "https://s02.video.glbimg.com/x216/2699023.jpg",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 111",
@@ -94,7 +94,7 @@ export const videos: Video[] = [
         "description": "Capítulo 111",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi111.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 112",
@@ -102,7 +102,7 @@ export const videos: Video[] = [
         "description": "Capítulo 112",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi112.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 113",
@@ -110,7 +110,7 @@ export const videos: Video[] = [
         "description": "Capítulo 113",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi113.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 114",
@@ -118,7 +118,7 @@ export const videos: Video[] = [
         "description": "Capítulo 114",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi114.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 115",
@@ -126,7 +126,7 @@ export const videos: Video[] = [
         "description": "Capítulo 115",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi115.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 116",
@@ -134,7 +134,7 @@ export const videos: Video[] = [
         "description": "Capítulo 116",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi116.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 117",
@@ -142,7 +142,7 @@ export const videos: Video[] = [
         "description": "Capítulo 117",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi117.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 118",
@@ -150,7 +150,7 @@ export const videos: Video[] = [
         "description": "Capítulo 118",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi118.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 119",
@@ -158,7 +158,7 @@ export const videos: Video[] = [
         "description": "Capítulo 119",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi119.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 120",
@@ -166,7 +166,7 @@ export const videos: Video[] = [
         "description": "Capítulo 120",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi120.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 101",
@@ -174,7 +174,7 @@ export const videos: Video[] = [
         "description": "Capítulo 101",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi101.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 102",
@@ -182,7 +182,7 @@ export const videos: Video[] = [
         "description": "Capítulo 102",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi102.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 103",
@@ -190,7 +190,7 @@ export const videos: Video[] = [
         "description": "Capítulo 103",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi103.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 104",
@@ -198,7 +198,7 @@ export const videos: Video[] = [
         "description": "Capítulo 104",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi104.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 105",
@@ -206,7 +206,7 @@ export const videos: Video[] = [
         "description": "Capítulo 105",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi105.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 106",
@@ -214,7 +214,7 @@ export const videos: Video[] = [
         "description": "Capítulo 106",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi106.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 107",
@@ -222,7 +222,7 @@ export const videos: Video[] = [
         "description": "Capítulo 107",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi107.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 108",
@@ -230,7 +230,7 @@ export const videos: Video[] = [
         "description": "Capítulo 108",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi108.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 109",
@@ -238,7 +238,7 @@ export const videos: Video[] = [
         "description": "Capítulo 109",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi109.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 110",
@@ -246,7 +246,7 @@ export const videos: Video[] = [
         "description": "Capítulo 110",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi110.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 111",
@@ -254,7 +254,7 @@ export const videos: Video[] = [
         "description": "Capítulo 111",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi111.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 112",
@@ -262,7 +262,7 @@ export const videos: Video[] = [
         "description": "Capítulo 112",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi112.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 113",
@@ -270,7 +270,7 @@ export const videos: Video[] = [
         "description": "Capítulo 113",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi113.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 114",
@@ -278,7 +278,7 @@ export const videos: Video[] = [
         "description": "Capítulo 114",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi114.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 115",
@@ -286,7 +286,7 @@ export const videos: Video[] = [
         "description": "Capítulo 115",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi115.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 116",
@@ -294,7 +294,7 @@ export const videos: Video[] = [
         "description": "Capítulo 116",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi116.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 117",
@@ -302,7 +302,7 @@ export const videos: Video[] = [
         "description": "Capítulo 117",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi117.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 118",
@@ -310,7 +310,7 @@ export const videos: Video[] = [
         "description": "Capítulo 118",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi118.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 119",
@@ -318,7 +318,7 @@ export const videos: Video[] = [
         "description": "Capítulo 119",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi119.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 120",
@@ -326,7 +326,7 @@ export const videos: Video[] = [
         "description": "Capítulo 120",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi120.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 141",
@@ -334,7 +334,7 @@ export const videos: Video[] = [
         "description": "Capítulo 141",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi141.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 142",
@@ -342,7 +342,7 @@ export const videos: Video[] = [
         "description": "Capítulo 142",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi142.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 143",
@@ -350,7 +350,7 @@ export const videos: Video[] = [
         "description": "Capítulo 143",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi143.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 144",
@@ -358,7 +358,7 @@ export const videos: Video[] = [
         "description": "Capítulo 144",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi144.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 145",
@@ -366,7 +366,7 @@ export const videos: Video[] = [
         "description": "Capítulo 145",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi145.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 146",
@@ -374,7 +374,7 @@ export const videos: Video[] = [
         "description": "Capítulo 146",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi146.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 147",
@@ -382,7 +382,7 @@ export const videos: Video[] = [
         "description": "Capítulo 147",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi147.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 148",
@@ -390,7 +390,7 @@ export const videos: Video[] = [
         "description": "Capítulo 148",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi148.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 149",
@@ -398,7 +398,7 @@ export const videos: Video[] = [
         "description": "Capítulo 149",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi149.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 150",
@@ -406,7 +406,7 @@ export const videos: Video[] = [
         "description": "Capítulo 150",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi150.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 151",
@@ -414,7 +414,7 @@ export const videos: Video[] = [
         "description": "Capítulo 151",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi151.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 152",
@@ -422,7 +422,7 @@ export const videos: Video[] = [
         "description": "Capítulo 152",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi152.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 153",
@@ -430,7 +430,7 @@ export const videos: Video[] = [
         "description": "Capítulo 153",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi153.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 154",
@@ -438,7 +438,7 @@ export const videos: Video[] = [
         "description": "Capítulo 154",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi154.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 155",
@@ -446,7 +446,7 @@ export const videos: Video[] = [
         "description": "Capítulo 155",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi155.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 156",
@@ -454,7 +454,7 @@ export const videos: Video[] = [
         "description": "Capítulo 156",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi156.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 157",
@@ -462,7 +462,7 @@ export const videos: Video[] = [
         "description": "Capítulo 157",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi157.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 158",
@@ -470,7 +470,7 @@ export const videos: Video[] = [
         "description": "Capítulo 158",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi158.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 159",
@@ -478,7 +478,7 @@ export const videos: Video[] = [
         "description": "Capítulo 159",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi159.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     {
         "name": "Capítulo 160",
@@ -486,7 +486,7 @@ export const videos: Video[] = [
         "description": "Capítulo 160",
         "urlVideo": "https://novelasflix.vip/storage4/FDC/FDCzJ8ZbkUekz24eeeVxdBUi160.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
-        "play": true
+        "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
     
 ]
