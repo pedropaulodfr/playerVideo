@@ -1,0 +1,13 @@
+.player {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), /* Sombra suave ao redor */
+                0 6px 20px rgba(0, 0, 0, 0.19); /* Sombra mais intensa em distâncias maiores */
+    border-radius: 10px; /* Opcional: cantos arredondados para um visual mais agradável */
+    overflow: hidden; /* Garante que o conteúdo dentro do player não ultrapasse os cantos */
+}
+
+.controles {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), /* Sombra suave ao redor */
+                0 6px 20px rgba(0, 0, 0, 0.19); /* Sombra mais intensa em distâncias maiores */
+    border-radius: 10px; /* Opcional: cantos arredondados para um visual mais agradável */
+    overflow: hidden; /* Garante que o conteúdo dentro do player não ultrapasse os cantos */
+}

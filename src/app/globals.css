@@ -4,18 +4,23 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
+  --background-top-rgb: 0, 0, 0, .5;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  background: 
+    linear-gradient(
       to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-top-rgb)), rgb(var(--background-end-rgb))
+    ),
+    url('https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .sidebarOpen ~ body {

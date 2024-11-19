@@ -1,6 +1,6 @@
 "use client";
 import React, { createContext, ReactNode, useState, useEffect, useRef, SetStateAction } from "react";
-import { videos } from '../dados/video';
+import { Totalmente_Demais_ , Flor_do_Caribe } from '../dados/video';
 
 type Video = {
   name: string;
@@ -8,7 +8,7 @@ type Video = {
   description: string;
   urlVideo: string;
   image: string;
-  play: boolean
+  cover: string
 }
 
 type HomeContextData = {
@@ -24,6 +24,9 @@ type HomeContextData = {
   onChangeFullScreen: () => void;
   loop: boolean;
   onChangeLoop: () => void;
+  listaVideos: Video[];
+  listaNovelas: Array<string>;
+  onChangeListaVideos: (novela: string) => void;
 };
 
 export const HomeContext = createContext({} as HomeContextData);
@@ -33,12 +36,23 @@ type ProviderProps = {
 };
 
 const HomeContextProvider = ({ children }: ProviderProps) => {
+  const [listaVideos, setListaVideos] = useState<Video[]>([{name: "", author: "", description: "", urlVideo: "", image: "", cover: ""}])
   const [volume, setVolume] = useState<number>(1);
   const [botaoVolume, setBotaoVolume] = useState<boolean>(false);
-  const [videoSelecionado, setVideoSelecionado] = useState<Video>(videos[0])
+  const [videoSelecionado, setVideoSelecionado] = useState<Video>(listaVideos[0])
   const [fullScreen, setFullScreen] = useState(false)
   const [loop, setLoop] = useState(false)
   const [play, setPlay] = useState(false)
+  
+  const listaNovelas = ["Flor do Caribe", "Totalmente Demais"]
+
+  const onChangeListaVideos = (novela: string) => {
+    if (novela == "Flor do Caribe") {
+      setListaVideos(Flor_do_Caribe)
+    } else {
+      setListaVideos(Totalmente_Demais_)
+    }
+  }
 
   const onChangePlay = () => {
       setPlay(!play)
@@ -55,13 +69,13 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
   };
 
   const onChangeVideo = (videoAtual: Video, acao: string) => {
-    const posicao = videos.findIndex(v => v.urlVideo === videoAtual.urlVideo);
+    const posicao = listaVideos.findIndex(v => v.urlVideo === videoAtual.urlVideo);
     if (acao === "next"){
-      setVideoSelecionado(videos[posicao + 1])
-      localStorage.setItem("ultimoVideo", JSON.stringify(videos[posicao + 1]))
+      setVideoSelecionado(listaVideos[posicao + 1])
+      localStorage.setItem("ultimoVideo", JSON.stringify(listaVideos[posicao + 1]))
     } else if (acao === "prev" && posicao !== 0) {
-      setVideoSelecionado(videos[posicao - 1])
-      localStorage.setItem("ultimoVideo", JSON.stringify(videos[posicao - 1]))
+      setVideoSelecionado(listaVideos[posicao - 1])
+      localStorage.setItem("ultimoVideo", JSON.stringify(listaVideos[posicao - 1]))
     } else if (acao === "load") {
       setVideoSelecionado(videoAtual)
       localStorage.setItem("ultimoVideo", JSON.stringify(videoAtual))
@@ -95,7 +109,8 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
         volume, onChangeVolume,
         botaoVolume, onChangeBotaoVolume,
         fullScreen, onChangeFullScreen,
-        loop, onChangeLoop
+        loop, onChangeLoop,
+        listaVideos, listaNovelas, onChangeListaVideos
       }}
     >
       {children}
