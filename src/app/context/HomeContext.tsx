@@ -14,6 +14,7 @@ type Video = {
 type HomeContextData = {
   play: boolean;
   onChangePlay: () => void;
+  onChangePlayBool: (status: boolean) => void;
   videoSelecionado: Video;
   onChangeVideo: (urlVideoAtual: Video, acao: string) => void;
   volume: number;
@@ -55,8 +56,12 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
   }
 
   const onChangePlay = () => {
-      setPlay(!play)
+    setPlay(!play)
   }
+
+  const onChangePlayBool = (status: boolean) => {
+    setPlay(status);
+  };
 
   const onChangeVolume = (event: Event, newValue: number | number[]) => {
     if (typeof newValue === "number") {
@@ -104,7 +109,7 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
   return (
     <HomeContext.Provider
       value={{
-        play, onChangePlay,
+        play, onChangePlay, onChangePlayBool,
         videoSelecionado, onChangeVideo,
         volume, onChangeVolume,
         botaoVolume, onChangeBotaoVolume,
