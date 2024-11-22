@@ -27,6 +27,7 @@ const Sidebar: React.FC = () => {
     setUltimaNovelaSelecionada(event.target.value)
     onChangeNovelaAtual(Flor_do_Caribe)
   }
+  
 
   return (
     <div className={isOpen ? styles.sidebarOpen : styles.sidebarClosed}>
