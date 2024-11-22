@@ -19,7 +19,7 @@ type Video = {
 
 const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, volume }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const { play, fullScreen, onChangeFullScreen, loop, onChangeVideo, onChangePlay } = useContext(HomeContext)
+    const { play, fullScreen, onChangeFullScreen, loop, onChangeVideo, onChangePlayBool } = useContext(HomeContext)
 
     // UseEffect para ficar monitorando o tempo de execução
     useEffect(() => {
@@ -30,7 +30,7 @@ const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, volume }) => 
       const handleTimeUpdate = () => {
         if(video.currentTime == video.duration) {
           const ultimoVideo = localStorage.getItem("ultimoVideo");
-          if(ultimoVideo) {
+          if(ultimoVideo) {      
             const videoObj: Video = JSON.parse(ultimoVideo) as Video;
             onChangeVideo(videoObj, "next")
           }
@@ -46,6 +46,28 @@ const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, volume }) => 
         video.removeEventListener("timeupdate", handleTimeUpdate);
       };
 
+    }, [])
+
+    useEffect(() => {
+      const video = videoRef.current;
+      
+      if (!video) return;
+
+      const handlePlayUpdate = () => {
+        onChangePlayBool(true)
+      }
+
+      const handlePauseUpdate = () => {
+        onChangePlayBool(false)
+      }
+
+      video.addEventListener("play", handlePlayUpdate)
+      video.addEventListener("pause", handlePauseUpdate)
+
+      return () => {
+        video.removeEventListener("play", handlePlayUpdate);
+        video.removeEventListener("pause", handlePauseUpdate);
+      };
     }, [])
     
     

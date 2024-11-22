@@ -5,12 +5,14 @@ import { HomeContext } from "../app/context/HomeContext";
 import { FcNext } from "react-icons/fc";
 import { IoCloseSharp } from "react-icons/io5";
 import { CiBoxList } from "react-icons/ci";
+import { Totalmente_Demais_, Flor_do_Caribe } from "@/app/dados/video";
 
 const Sidebar: React.FC = () => {
-  const { onChangeVideo, listaVideos, listaNovelas, onChangeListaVideos } = useContext(HomeContext);
+  const { videos, onChangeVideo, onChangeNovelaAtual } = useContext(HomeContext);
   const [isOpen, setIsOpen] = useState(false);
   const [listNovelasOpen, setListNovelasIsOpen] = useState(false);
-  const [novelaSelecionada, setNovelaSelecionada] = useState<string>('')
+  const [ultimaNovelaSelecionada, setUltimaNovelaSelecionada] = useState(localStorage.getItem("ultimaNovela"))
+  const listaNovelas = ["Flor do Caribe", "Totalmente Demais"]
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -20,10 +22,10 @@ const Sidebar: React.FC = () => {
   };
 
   const onChangeNovela = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNovelaSelecionada(event.target.value)
-    onChangeListaVideos(event.target.value)
     localStorage.removeItem("ultimoVideo")
     localStorage.setItem("ultimaNovela", event.target.value)
+    setUltimaNovelaSelecionada(event.target.value)
+    onChangeNovelaAtual(Flor_do_Caribe)
   }
 
   return (
@@ -40,7 +42,7 @@ const Sidebar: React.FC = () => {
                 <input className={`${styles.radio}`}
                   type="radio"
                   value={novela}
-                  checked={novela == novelaSelecionada}
+                  checked={novela == ultimaNovelaSelecionada}
                   onChange={onChangeNovela}
                 >
                 </input>
@@ -51,7 +53,7 @@ const Sidebar: React.FC = () => {
         </ul>
         <ul className={isOpen ? styles.menuList : styles.menuListClosed}>
           <h1 style={{ fontSize: "1.3em", fontWeight: "bold" }}>Lista de Capítulos</h1>
-          {listaVideos.map((m, index) => (
+          {videos.map((m, index) => (
             <li className={styles.menuItem} key={index}>
               <Link
                 href="#"

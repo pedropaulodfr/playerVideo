@@ -1885,7 +1885,6 @@ const Flor_do_Caribe: Video[] = [
         "image": "https://upload.wikimedia.org/wikipedia/pt/3/31/Flor_do_Caribe.JPG",
         "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
-    
 ]
 
-export { Totalmente_Demais_ , Flor_do_Caribe }
+export { Totalmente_Demais_ , Flor_do_Caribe } 
