@@ -39,8 +39,8 @@ type HomeContextData = {
 const initialState = [{name: "", author: "", description: "", urlVideo: "", image: "", cover: ""}]
 
 const onLoadNovela = () => {
-  if (localStorage.getItem("ultimaNovela") === "Flor do Caribe") return Flor_do_Caribe
-  else if (localStorage.getItem("ultimaNovela") === "Totalmente Demais") return Flor_do_Caribe
+  if (localStorage.getItem("ultimaNovela") === "Flor do Caribe") return Totalmente_Demais_
+  else if (localStorage.getItem("ultimaNovela") === "Totalmente Demais") return Totalmente_Demais_
   else return initialState
 }
 
