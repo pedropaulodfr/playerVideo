@@ -21,12 +21,12 @@ const Sidebar: React.FC = () => {
     setListNovelasIsOpen(!listNovelasOpen);
   };
 
-  const onChangeNovela = (event: React.ChangeEvent<HTMLInputElement>) => {
+  /* const onChangeNovela = (event: React.ChangeEvent<HTMLInputElement>) => {
     localStorage.removeItem("ultimoVideo")
     localStorage.setItem("ultimaNovela", event.target.value)
     setUltimaNovelaSelecionada(event.target.value)
     onChangeNovelaAtual(Flor_do_Caribe)
-  }
+  } */
   
 
   return (
@@ -44,7 +44,7 @@ const Sidebar: React.FC = () => {
                   type="radio"
                   value={novela}
                   checked={novela == ultimaNovelaSelecionada}
-                  onChange={onChangeNovela}
+                  /* onChange={onChangeNovela} */
                 >
                 </input>
                 {novela}
