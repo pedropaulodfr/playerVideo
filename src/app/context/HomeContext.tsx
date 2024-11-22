@@ -38,11 +38,12 @@ type HomeContextData = {
 
 const initialState = [{name: "", author: "", description: "", urlVideo: "", image: "", cover: ""}]
 
-const onLoadNovela = () => {
-  if (localStorage.getItem("ultimaNovela") === "Flor do Caribe") return Totalmente_Demais_
+
+/* const onLoadNovela = () => {
+  if (localStorage.getItem("ultimaNovela") === "Flor do Caribe") return Flor_do_Caribe
   else if (localStorage.getItem("ultimaNovela") === "Totalmente Demais") return Totalmente_Demais_
   else return initialState
-}
+} */
 
 export const HomeContext = createContext({} as HomeContextData);
 
@@ -51,7 +52,7 @@ type ProviderProps = {
 };
 
 const HomeContextProvider = ({ children }: ProviderProps) => {
-  const [videos, setVideos] = useState(onLoadNovela)
+  const [videos, setVideos] = useState(Flor_do_Caribe)
 
   const onChangeNovelaAtual = (novela: Video[]) => {
     setVideos(novela)

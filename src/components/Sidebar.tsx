@@ -25,7 +25,7 @@ const Sidebar: React.FC = () => {
     localStorage.removeItem("ultimoVideo")
     localStorage.setItem("ultimaNovela", event.target.value)
     setUltimaNovelaSelecionada(event.target.value)
-    onChangeNovelaAtual(event.target.value == "Flor do Caribe" ? Totalmente_Demais_: Totalmente_Demais_)
+    onChangeNovelaAtual(Flor_do_Caribe)
   }
 
   return (
