@@ -52,7 +52,9 @@ export default function Home() {
                 <button className="m-5" onClick={onChangeFullScreen}><RiFullscreenFill color="#333" size={25} /></button>
               </>
             )}
-            {botaoVolume && (
+          </div>
+        </section>
+        {botaoVolume && (
           <section className="slider-volume">
             <Box sx={{ width: 200 }}>
               <Stack spacing={2} direction="row" sx={{ alignItems: "center", mb: 1 }} >
@@ -64,10 +66,6 @@ export default function Home() {
             </Box>
           </section>
         )}
-          </div>
-        </section>
-
-        
       </div>
     </main>
   );
