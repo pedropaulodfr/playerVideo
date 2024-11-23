@@ -35,7 +35,7 @@ type ProviderProps = {
 };
 
 const HomeContextProvider = ({ children }: ProviderProps) => {
-  const [videos, setVideos] = useState<Video[]>(Flor_do_Caribe)
+  const [videos, setVideos] = useState<Video[]>(Totalmente_Demais_)
   const [volume, setVolume] = useState<number>(1);
   const [botaoVolume, setBotaoVolume] = useState<boolean>(false);
   const [videoSelecionado, setVideoSelecionado] = useState<Video>(videos[0])
