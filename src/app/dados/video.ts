@@ -348,7 +348,7 @@ const Totalmente_Demais_: Video[] = [
         "name": "Capítulo 44",
         "author": "Totalmente Demais",
         "description": "Capítulo 44",
-        "urlVideo": "https://novelasflix.vip/https://upload.wikimedia.org/wikipedia/pt/c/cf/Totalmente_Demais_%28telenovela%29.pngs02.video.glbimg.com/x216/2680081.jpg",
+        "urlVideo": "https://novelasflix.vip/storage4/TD/TDzJ8ZbkUekz24eeeVxdBUi044.mp4",
         "image": "https://upload.wikimedia.org/wikipedia/pt/c/cf/Totalmente_Demais_%28telenovela%29.png",
         "cover": "https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg"
     },
