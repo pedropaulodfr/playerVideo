@@ -11,3 +11,49 @@
     border-radius: 10px; /* Opcional: cantos arredondados para um visual mais agradável */
     overflow: hidden; /* Garante que o conteúdo dentro do player não ultrapasse os cantos */
 }
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Espaçamento entre os itens */
+}
+
+.setting-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha os itens ao início */
+}
+
+.label {
+    margin-top: 0.5rem; /* Adiciona espaço entre o elemento e o label */
+    margin-left: 1rem; /* Adiciona espaço entre o elemento e o label */
+    margin-right: 1rem; /* Adiciona espaço entre o elemento e o label */
+}
+
+.custom_number_input {
+    width: 45px; /* Largura do input */
+    height: 35px; /* Altura do input */
+    padding: 8px; /* Espaçamento interno */
+    border: 2px solid #b4b4b4; /* Cor e largura da borda */
+    border-radius: 8px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+    background-color: #f9f9f958; /* Cor de fundo */
+    outline: none; /* Remove o contorno padrão ao focar */
+    transition: border-color 0.3s ease; /* Animação suave na borda */
+  }
+  
+  .custom_number_input:focus {
+    border-color: #f5f2f2; /* Cor da borda ao focar */
+    background-color: #f9f9f992; /* Fundo branco ao focar */
+  }
+  
+  .custom_number_input::-webkit-inner-spin-button,
+  .custom_number_input::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Remove os botões de incremento/decremento no Chrome/Safari */
+    margin: 0;
+  }
+  
+  .custom_number_input::-moz-inner-spin-button {
+    appearance: none; /* Remove os botões de incremento/decremento no Firefox */
+  }

@@ -19,13 +19,17 @@ const Sidebar: React.FC = () => {
     setListNovelasIsOpen(!listNovelasOpen);
   };
 
-  const onChangeNovela = (url: string) => {
-    window.location.href = url;
+  const onChangeNovela = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (typeof window !== "undefined") { 
+      setNovelaSelecionada(event.target.value)
+      localStorage.removeItem("ultimoVideo")
+      localStorage.setItem("ultimaNovela", event.target.value)
+    }
   }
 
   const listaNovelas = [
-    {nome: "Flor do Caribe", url: "https://playervideo.onrender.com"}, 
-    {nome: "Totalmente Demais", url: "https://totalmentedemais.onrender.com"}, 
+    {titulo: "Flor do Caribe", url: "https://playervideo.onrender.com/"},
+    {titulo: "Totalmente Demais", url: "https://totalmentedemais.onrender.com/"}
   ]
 
   return (
@@ -38,14 +42,9 @@ const Sidebar: React.FC = () => {
           <h1 style={{ fontSize: "1.3em", fontWeight: "bold" }}>Lista de Novelas<CiBoxList onClick={toggleNovelas} size={30} style={{cursor: "pointer"}}/></h1>
           {listNovelasOpen &&
             listaNovelas.map((novela, key) => (
-              <label key={key} className={`${styles.label}`}>
-                <input className={`${styles.buttonNovelas}`}
-                  type="button"
-                  value={novela.nome}
-                  onClick={() => onChangeNovela(novela.url)}
-                >
-                </input>
-              </label>
+              <Link href={novela.url} key={key} style={{ display: 'block', marginBottom: '8px' }}>
+                {novela.titulo}
+              </Link>
             ))
           }
         </ul>

@@ -17,7 +17,7 @@ body {
       transparent,
       rgb(var(--background-top-rgb)), rgb(var(--background-end-rgb))
     ),
-    url('https://s2-gshow.glbimg.com/f6mRulnkA0p_WL7snHdYQkFfRvU=/0x0:4743x3162/1008x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2017/I/p/Xovk1WReAMRYIdcH1rdw/264790.jpg');
+    url('https://s2-memoriaglobo.glbimg.com/poSZ1POQJ-zx9Rau-k3WjYw78Pw=/0x0:2048x1152/1080x608/smart/filters:max_age(3600)/https://i.s3.glbimg.com/v1/AUTH_ee6202d7f3f346a7a5d7affb807d8893/internal_photos/bs/2022/6/B/7cAybAQmagXiGLI8gBGQ/20130523-jm-flor-do-caribe-70007.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -25,6 +25,30 @@ body {
 
 .sidebarOpen ~ body {
   margin-left: 250px; /* ajuste conforme o tamanho do menu lateral aberto */
+}
+
+.buttonsAdicionais {
+  background-color: #EE8156; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  border: none; /* Remove a borda */
+  border-radius: 5px; /* Bordas arredondadas */
+  padding: 7px 17px; /* Espaçamento interno (altura e largura) */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 13px; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  text-transform: uppercase; /* Texto em maiúsculas */
+  cursor: pointer; /* Cursor do mouse como "pointer" */
+  transition: background-color 0.3s ease; /* Animação suave ao passar o mouse */
+}
+
+.buttonsAdicionais:hover {
+  background-color: #EB6532; /* Cor mais escura ao passar o mouse */
+}
+
+.slider-tempo {
+  width: 100%;
+  margin-top: 5px;
 }
 
 @layer utilities {
@@ -40,5 +64,9 @@ body {
 
   .description-music {
     padding-left: 18vw;
+  }
+
+  .slider-tempo {
+    width: 55%;
   }
 }

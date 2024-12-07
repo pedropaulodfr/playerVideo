@@ -1,5 +1,6 @@
 "use client";
 import React, { createContext, ReactNode, useState, useEffect, useRef, SetStateAction } from "react";
+import Parametros from "@/helpers/functions"
 import { Totalmente_Demais_ , Flor_do_Caribe } from '../dados/video';
 
 type Video = {
@@ -26,6 +27,22 @@ type HomeContextData = {
   onChangeFullScreen: () => void;
   loop: boolean;
   onChangeLoop: () => void;
+  botaoPularIntro: boolean;
+  botaoPularIntroClick: boolean;
+  onChangeBotaoPularIntro: (status: boolean) => void;
+  handleBotaoPularIntro: () => void;
+  botaoPularEncerramento: boolean;
+  botaoPularEncerramentoClick: boolean;
+  onChangeBotaoPularEncerramento: (status: boolean) => void;
+  handleBotaoPularEncerramento: () => void;
+  corPrimaria: string;
+  corSecundaria: string;
+  corInversa: string;
+  onChangeDarkMode: () => void;
+  tempo: number;
+  onChangeTempo: (newValue: number | number[]) => void;
+  handleSliderTempo: (event: Event, newValue: number | number[]) => void;
+  videoRef: React.RefObject<HTMLVideoElement>;
 };
 
 export const HomeContext = createContext({} as HomeContextData);
@@ -35,21 +52,33 @@ type ProviderProps = {
 };
 
 const HomeContextProvider = ({ children }: ProviderProps) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [videos, setVideos] = useState<Video[]>(Totalmente_Demais_)
   const [volume, setVolume] = useState<number>(1);
+  const [tempo, setTempo] = useState<number>(0);
   const [botaoVolume, setBotaoVolume] = useState<boolean>(false);
   const [videoSelecionado, setVideoSelecionado] = useState<Video>(videos[0])
   const [fullScreen, setFullScreen] = useState(false)
   const [loop, setLoop] = useState(false)
   const [play, setPlay] = useState(false)
+  const [botaoPularIntro, setBotaoPularIntro] = useState(false)
+  const [botaoPularIntroClick, setBotaoPularIntroClick] = useState(false)
+  const [botaoPularEncerramento, setBotaoPularEncerramento] = useState(false)
+  const [botaoPularEncerramentoClick, setBotaoPularEncerramenroClick] = useState(false)
+  const [darkMode, setDarkMode] = useState(JSON.parse(Parametros.pegarParametro("darkMode") ?? "false"))
+  const [corPrimaria, corSecundaria, corInversa] = 
+    [darkMode ? Parametros.darkColors()[0].primaria : Parametros.lightColors()[0].primaria, 
+      darkMode ? Parametros.darkColors()[0].secundaria : Parametros.lightColors()[0].secundaria, 
+      darkMode ? Parametros.lightColors()[0].primaria : Parametros.darkColors()[0].primaria, 
+    ]
 
-  const onChangePlay = () => {
-    setPlay(!play)
+  const onChangeDarkMode = () => {
+    setDarkMode(!darkMode)
   }
 
-  const onChangePlayBool = (status: boolean) => {
-    setPlay(status);
-  };
+  const onChangePlay = () => { setPlay(!play) }
+
+  const onChangePlayBool = (status: boolean) => { setPlay(status) }
 
   const onChangeVolume = (event: Event, newValue: number | number[]) => {
     if (typeof newValue === "number") {
@@ -57,39 +86,63 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
     }
   };
 
-  const onChangeBotaoVolume = () => {
-    setBotaoVolume(!botaoVolume);
+  // Função para atualizar o Slider de tempo
+  const onChangeTempo = (newValue: number | number[]) => {
+    if (typeof newValue === "number") {
+      setTempo(newValue / 100);
+    }
   };
-
-  const onChangeVideo = (videoAtual: Video, acao: string) => {
-    const posicao = videos.findIndex(v => v.urlVideo === videoAtual.urlVideo);
-    if (acao === "next"){
-      setVideoSelecionado(videos[posicao + 1])
-      localStorage.setItem("ultimoVideo", JSON.stringify(videos[posicao + 1]))
-    } else if (acao === "prev" && posicao !== 0) {
-      setVideoSelecionado(videos[posicao - 1])
-      localStorage.setItem("ultimoVideo", JSON.stringify(videos[posicao - 1]))
-    } else if (acao === "load") {
-      setVideoSelecionado(videoAtual)
-      localStorage.setItem("ultimoVideo", JSON.stringify(videoAtual))
+  
+  // Função para atualizar o tempo conforme alterado o Slider
+  const handleSliderTempo = (event: Event, newValue: number | number[]) => {
+    if (typeof newValue === "number" && videoRef.current) {
+      const video = videoRef.current;
+      video.currentTime= (newValue / 100) * video.duration;
+      setTempo(newValue / 100); // Atualiza o estado do slider
     }
   };
 
-  const onChangeFullScreen = () => {
-    setFullScreen(!fullScreen)
-  }
+  const onChangeBotaoVolume = () => { setBotaoVolume(!botaoVolume) }
+  
+  const onChangeBotaoPularIntro = (status: boolean) => { setBotaoPularIntro(status) }
+  
+  const handleBotaoPularIntro = () => { setBotaoPularIntroClick(!botaoPularIntroClick) }
+  const handleBotaoPularEncerramento = () => { setBotaoPularEncerramenroClick(!botaoPularEncerramentoClick) }
 
-  const onChangeLoop = () => {
-    setLoop(!loop)
-  }
+  const onChangeBotaoPularEncerramento = (status: boolean) => { setBotaoPularEncerramento(status) }
+
+  const onChangeVideo = (videoAtual: Video, acao: string) => {
+    if (typeof window !== "undefined") { 
+      localStorage.setItem("pularIntro", "false")
+      localStorage.setItem("pularEncerramento", "false")
+  
+      const posicao = videos.findIndex(v => v.urlVideo === videoAtual.urlVideo);
+      if (acao === "next"){
+        setVideoSelecionado(videos[posicao + 1])
+        localStorage.setItem("ultimoVideo", JSON.stringify(videos[posicao + 1]))
+      } else if (acao === "prev" && posicao !== 0) {
+        setVideoSelecionado(videos[posicao - 1])
+        localStorage.setItem("ultimoVideo", JSON.stringify(videos[posicao - 1]))
+      } else if (acao === "load") {
+        setVideoSelecionado(videoAtual)
+        localStorage.setItem("ultimoVideo", JSON.stringify(videoAtual))
+      }
+    }
+  };
+
+  const onChangeFullScreen = () => { setFullScreen(!fullScreen) }
+
+  const onChangeLoop = () => { setLoop(!loop) }
 
   useEffect(() => {
-    const ultimoVideo = localStorage.getItem("ultimoVideo")
-    
-    if (ultimoVideo != null) {
-      const ultimoVideoJSON = JSON.parse(ultimoVideo)
-
-      onChangeVideo(ultimoVideoJSON, "load")
+    if (typeof window !== "undefined") { 
+      const ultimoVideo = localStorage.getItem("ultimoVideo")
+      
+      if (ultimoVideo != null && ultimoVideo != undefined) {
+        const ultimoVideoJSON = JSON.parse(ultimoVideo)
+  
+        onChangeVideo(ultimoVideoJSON, "load")
+      }
     }
     
   }, [])
@@ -103,6 +156,12 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
         botaoVolume, onChangeBotaoVolume,
         fullScreen, onChangeFullScreen,
         loop, onChangeLoop,
+        botaoPularIntro, botaoPularIntroClick, 
+        onChangeBotaoPularIntro, handleBotaoPularIntro,
+        botaoPularEncerramento, botaoPularEncerramentoClick, 
+        onChangeBotaoPularEncerramento, handleBotaoPularEncerramento,
+        corPrimaria, corSecundaria, corInversa, onChangeDarkMode,
+        tempo, onChangeTempo, handleSliderTempo, videoRef,
       }}
     >
       {children}
