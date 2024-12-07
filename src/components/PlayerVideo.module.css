@@ -27,6 +27,7 @@
 .label {
     margin-top: 0.5rem; /* Adiciona espaço entre o elemento e o label */
     margin-left: 1rem; /* Adiciona espaço entre o elemento e o label */
+    margin-right: 1rem; /* Adiciona espaço entre o elemento e o label */
 }
 
 .custom_number_input {

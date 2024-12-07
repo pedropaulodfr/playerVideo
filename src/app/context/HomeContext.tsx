@@ -39,6 +39,10 @@ type HomeContextData = {
   corSecundaria: string;
   corInversa: string;
   onChangeDarkMode: () => void;
+  tempo: number;
+  onChangeTempo: (newValue: number | number[]) => void;
+  handleSliderTempo: (event: Event, newValue: number | number[]) => void;
+  videoRef: React.RefObject<HTMLVideoElement>;
 };
 
 export const HomeContext = createContext({} as HomeContextData);
@@ -48,8 +52,10 @@ type ProviderProps = {
 };
 
 const HomeContextProvider = ({ children }: ProviderProps) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [videos, setVideos] = useState<Video[]>(Flor_do_Caribe)
   const [volume, setVolume] = useState<number>(1);
+  const [tempo, setTempo] = useState<number>(0);
   const [botaoVolume, setBotaoVolume] = useState<boolean>(false);
   const [videoSelecionado, setVideoSelecionado] = useState<Video>(videos[0])
   const [fullScreen, setFullScreen] = useState(false)
@@ -77,6 +83,22 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
   const onChangeVolume = (event: Event, newValue: number | number[]) => {
     if (typeof newValue === "number") {
       setVolume(newValue / 100);
+    }
+  };
+
+  // Função para atualizar o Slider de tempo
+  const onChangeTempo = (newValue: number | number[]) => {
+    if (typeof newValue === "number") {
+      setTempo(newValue / 100);
+    }
+  };
+  
+  // Função para atualizar o tempo conforme alterado o Slider
+  const handleSliderTempo = (event: Event, newValue: number | number[]) => {
+    if (typeof newValue === "number" && videoRef.current) {
+      const video = videoRef.current;
+      video.currentTime= (newValue / 100) * video.duration;
+      setTempo(newValue / 100); // Atualiza o estado do slider
     }
   };
 
@@ -138,7 +160,8 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
         onChangeBotaoPularIntro, handleBotaoPularIntro,
         botaoPularEncerramento, botaoPularEncerramentoClick, 
         onChangeBotaoPularEncerramento, handleBotaoPularEncerramento,
-        corPrimaria, corSecundaria, corInversa, onChangeDarkMode
+        corPrimaria, corSecundaria, corInversa, onChangeDarkMode,
+        tempo, onChangeTempo, handleSliderTempo, videoRef,
       }}
     >
       {children}
