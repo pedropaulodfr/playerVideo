@@ -20,9 +20,11 @@ const Sidebar: React.FC = () => {
   };
 
   const onChangeNovela = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNovelaSelecionada(event.target.value)
-    localStorage.removeItem("ultimoVideo")
-    localStorage.setItem("ultimaNovela", event.target.value)
+    if (typeof window !== "undefined") { 
+      setNovelaSelecionada(event.target.value)
+      localStorage.removeItem("ultimoVideo")
+      localStorage.setItem("ultimaNovela", event.target.value)
+    }
   }
 
   const listaNovelas = [
