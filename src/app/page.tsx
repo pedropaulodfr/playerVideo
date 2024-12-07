@@ -32,9 +32,10 @@ export default function Home() {
   const [controlesPlayer, setControlesPlayer] = useState(JSON.parse(Parametros.pegarParametro("displayControls") ?? "false"))
   const [darkMode, setDarkMode] = useState(JSON.parse(Parametros.pegarParametro("darkMode")  ?? "false"))
   
-
-  if(typeof window !== "undefined" && localStorage.getItem("params") == undefined || localStorage.getItem("params") == null)
-    localStorage.setItem("params", JSON.stringify([]))
+  if(typeof window !== "undefined") {
+    if(localStorage.getItem("params") == undefined || localStorage.getItem("params") == null)
+      localStorage.setItem("params", JSON.stringify([]))
+  }
 
   const handlePularIntro = () => {
     Parametros.salvarParametros("skipIntro", !pularIntro)
