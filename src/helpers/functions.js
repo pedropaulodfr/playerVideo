@@ -56,4 +56,10 @@ const darkColors = () => {
     ]
 }
 
-export default {salvarParametros, pegarParametro, lightColors, darkColors}
+const formatarTempo = (tempoSegundos) => {
+    const minutos = Math.floor(tempoSegundos / 60);
+    const segundos = Math.floor(tempoSegundos % 60);
+    return `${String(minutos).padStart(2, "0")}:${String(segundos).padStart(2, "0")}`;
+}
+
+export default {salvarParametros, pegarParametro, lightColors, darkColors, formatarTempo}

@@ -22,7 +22,8 @@ import Parametros from '../helpers/functions'
 export default function Home() {
   const { videoSelecionado, onChangeVideo, play, onChangePlay, volume, onChangeVolume, botaoVolume, 
     onChangeBotaoVolume, onChangeFullScreen, loop, onChangeLoop, botaoPularIntro, botaoPularEncerramento, 
-    handleBotaoPularIntro, handleBotaoPularEncerramento, corPrimaria, corSecundaria, corInversa, onChangeDarkMode } = useContext(HomeContext);
+    handleBotaoPularIntro, handleBotaoPularEncerramento, corPrimaria, corSecundaria, corInversa, onChangeDarkMode,
+    tempo, onChangeTempo, handleSliderTempo, videoRef } = useContext(HomeContext);
   const [more, setMore] = useState(false)
   const [settings, setSettings] = useState(false)
   const [pularIntro, setPularIntro] = useState(JSON.parse(Parametros.pegarParametro("skipIntro") ?? "false"))
@@ -78,8 +79,13 @@ export default function Home() {
 
       <div className="flex flex-col justify-center items-center">
         <section className="info-music">
-          <div className="cover-music"  style={{width: "80vw"}}>
+          <div className="cover-music" style={{width: "80vw"}}>
             <PlayerVideo videoSrc={videoSelecionado.urlVideo} mute={false} volume={volume} />
+          </div>
+          <div className="description-music flex items-center" >
+            <label className={`${styles.label}`} style={{color: corSecundaria, width: '40px'}}>{Parametros.formatarTempo(videoRef?.current?.currentTime ?? 0)}</label>
+            <Slider className="slider-tempo" aria-label="Tempo" value={tempo * 100} onChange={handleSliderTempo} style={{color: corSecundaria}}/>
+            <label className={`${styles.label}`} style={{color: corSecundaria}}>{Parametros.formatarTempo(videoRef?.current?.duration ?? 0)}</label>
           </div>
           <div className="description-music">
             <h1 style={{fontSize: "1.3em", fontWeight: "bold", color: corPrimaria}}>{videoSelecionado.name}</h1>
@@ -120,7 +126,7 @@ export default function Home() {
           </section>
         )}
         {settings && (
-          <section className="flex flex-row justify-between m-5">
+          <section className={`flex flex-row justify-between m-5 ${styles.controles} p-10`}>
             <div className={`settings flex flex-column ${styles.settings}`}>
               <div className="setting-item">
                 <Switch checked={pularIntro} onChange={handlePularIntro} />

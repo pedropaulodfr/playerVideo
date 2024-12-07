@@ -46,6 +46,11 @@ body {
   background-color: #EB6532; /* Cor mais escura ao passar o mouse */
 }
 
+.slider-tempo {
+  width: 100%;
+  margin-top: 5px;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -59,5 +64,9 @@ body {
 
   .description-music {
     padding-left: 18vw;
+  }
+
+  .slider-tempo {
+    width: 55%;
   }
 }

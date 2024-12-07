@@ -19,7 +19,6 @@ type Video = {
 };
 
 const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, volume, }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const {
     play,
     fullScreen,
@@ -33,6 +32,8 @@ const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, volume, }) =>
     botaoPularEncerramentoClick,
     handleBotaoPularIntro,
     handleBotaoPularEncerramento,
+    onChangeTempo,
+    tempo, videoRef,
   } = useContext(HomeContext);
 
   // UseEffect para ficar monitorando o tempo de execução
@@ -40,7 +41,7 @@ const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, volume, }) =>
     const video = videoRef.current;
 
     if (!video) return;
-
+    
     const handleTimeUpdate = () => {
       if (video.currentTime == video.duration) {
         if (typeof window === "undefined") return;
@@ -53,6 +54,9 @@ const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, volume, }) =>
       } else if (video.currentTime == 0) {
         video.play();
       }
+      
+      // Atualizar slider de tempo
+      if (video.currentTime != 0) { onChangeTempo( (video.currentTime / video.duration) * 100 ) }
 
       // Controla a visibilidade do botão Pular Intro
       if (
@@ -123,6 +127,7 @@ const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, volume, }) =>
       video.removeEventListener("pause", handlePauseUpdate);
     };
   }, []);
+  
 
   if (play) {
     videoRef.current?.play();
