@@ -27,6 +27,25 @@ body {
   margin-left: 250px; /* ajuste conforme o tamanho do menu lateral aberto */
 }
 
+.buttonsAdicionais {
+  background-color: #EE8156; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  border: none; /* Remove a borda */
+  border-radius: 5px; /* Bordas arredondadas */
+  padding: 7px 17px; /* Espaçamento interno (altura e largura) */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 13px; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  text-transform: uppercase; /* Texto em maiúsculas */
+  cursor: pointer; /* Cursor do mouse como "pointer" */
+  transition: background-color 0.3s ease; /* Animação suave ao passar o mouse */
+}
+
+.buttonsAdicionais:hover {
+  background-color: #EB6532; /* Cor mais escura ao passar o mouse */
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
