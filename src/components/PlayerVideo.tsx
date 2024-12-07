@@ -43,6 +43,8 @@ const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, volume, }) =>
 
     const handleTimeUpdate = () => {
       if (video.currentTime == video.duration) {
+        if (typeof window === "undefined") return;
+        
         const ultimoVideo = localStorage.getItem("ultimoVideo");
         if (ultimoVideo) {
           const videoObj: Video = JSON.parse(ultimoVideo) as Video;

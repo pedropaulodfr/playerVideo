@@ -90,19 +90,21 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
   const onChangeBotaoPularEncerramento = (status: boolean) => { setBotaoPularEncerramento(status) }
 
   const onChangeVideo = (videoAtual: Video, acao: string) => {
-    localStorage.setItem("pularIntro", "false")
-    localStorage.setItem("pularEncerramento", "false")
-
-    const posicao = videos.findIndex(v => v.urlVideo === videoAtual.urlVideo);
-    if (acao === "next"){
-      setVideoSelecionado(videos[posicao + 1])
-      localStorage.setItem("ultimoVideo", JSON.stringify(videos[posicao + 1]))
-    } else if (acao === "prev" && posicao !== 0) {
-      setVideoSelecionado(videos[posicao - 1])
-      localStorage.setItem("ultimoVideo", JSON.stringify(videos[posicao - 1]))
-    } else if (acao === "load") {
-      setVideoSelecionado(videoAtual)
-      localStorage.setItem("ultimoVideo", JSON.stringify(videoAtual))
+    if (typeof window !== "undefined") { 
+      localStorage.setItem("pularIntro", "false")
+      localStorage.setItem("pularEncerramento", "false")
+  
+      const posicao = videos.findIndex(v => v.urlVideo === videoAtual.urlVideo);
+      if (acao === "next"){
+        setVideoSelecionado(videos[posicao + 1])
+        localStorage.setItem("ultimoVideo", JSON.stringify(videos[posicao + 1]))
+      } else if (acao === "prev" && posicao !== 0) {
+        setVideoSelecionado(videos[posicao - 1])
+        localStorage.setItem("ultimoVideo", JSON.stringify(videos[posicao - 1]))
+      } else if (acao === "load") {
+        setVideoSelecionado(videoAtual)
+        localStorage.setItem("ultimoVideo", JSON.stringify(videoAtual))
+      }
     }
   };
 
@@ -111,12 +113,14 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
   const onChangeLoop = () => { setLoop(!loop) }
 
   useEffect(() => {
-    const ultimoVideo = localStorage.getItem("ultimoVideo")
-    
-    if (ultimoVideo != null) {
-      const ultimoVideoJSON = JSON.parse(ultimoVideo)
-
-      onChangeVideo(ultimoVideoJSON, "load")
+    if (typeof window !== "undefined") { 
+      const ultimoVideo = localStorage.getItem("ultimoVideo")
+      
+      if (ultimoVideo != null) {
+        const ultimoVideoJSON = JSON.parse(ultimoVideo)
+  
+        onChangeVideo(ultimoVideoJSON, "load")
+      }
     }
     
   }, [])

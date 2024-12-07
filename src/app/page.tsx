@@ -31,8 +31,9 @@ export default function Home() {
   const [tempoEncerramento, setTempoEncerramento] = useState(Parametros.pegarParametro("tempClosing") ?? 0)
   const [controlesPlayer, setControlesPlayer] = useState(JSON.parse(Parametros.pegarParametro("displayControls")) ?? false)
   const [darkMode, setDarkMode] = useState(JSON.parse(Parametros.pegarParametro("darkMode")) ?? false)
+  
 
-  if(localStorage.getItem("params") == undefined || localStorage.getItem("params") == null)
+  if(typeof window !== "undefined" && localStorage.getItem("params") == undefined || localStorage.getItem("params") == null)
     localStorage.setItem("params", JSON.stringify([]))
 
   const handlePularIntro = () => {
