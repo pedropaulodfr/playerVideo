@@ -1,5 +1,6 @@
 "use client";
 import React, { createContext, ReactNode, useState, useEffect, useRef, SetStateAction } from "react";
+import Parametros from "@/helpers/functions"
 import { Totalmente_Demais_ , Flor_do_Caribe } from '../dados/video';
 
 type Video = {
@@ -26,6 +27,18 @@ type HomeContextData = {
   onChangeFullScreen: () => void;
   loop: boolean;
   onChangeLoop: () => void;
+  botaoPularIntro: boolean;
+  botaoPularIntroClick: boolean;
+  onChangeBotaoPularIntro: (status: boolean) => void;
+  handleBotaoPularIntro: () => void;
+  botaoPularEncerramento: boolean;
+  botaoPularEncerramentoClick: boolean;
+  onChangeBotaoPularEncerramento: (status: boolean) => void;
+  handleBotaoPularEncerramento: () => void;
+  corPrimaria: string;
+  corSecundaria: string;
+  corInversa: string;
+  onChangeDarkMode: () => void;
 };
 
 export const HomeContext = createContext({} as HomeContextData);
@@ -42,14 +55,24 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
   const [fullScreen, setFullScreen] = useState(false)
   const [loop, setLoop] = useState(false)
   const [play, setPlay] = useState(false)
+  const [botaoPularIntro, setBotaoPularIntro] = useState(false)
+  const [botaoPularIntroClick, setBotaoPularIntroClick] = useState(false)
+  const [botaoPularEncerramento, setBotaoPularEncerramento] = useState(false)
+  const [botaoPularEncerramentoClick, setBotaoPularEncerramenroClick] = useState(false)
+  const [darkMode, setDarkMode] = useState(JSON.parse(Parametros.pegarParametro("darkMode")) ?? false)
+  const [corPrimaria, corSecundaria, corInversa] = 
+    [darkMode ? Parametros.darkColors()[0].primaria : Parametros.lightColors()[0].primaria, 
+      darkMode ? Parametros.darkColors()[0].secundaria : Parametros.lightColors()[0].secundaria, 
+      darkMode ? Parametros.lightColors()[0].primaria : Parametros.darkColors()[0].primaria, 
+    ]
 
-  const onChangePlay = () => {
-    setPlay(!play)
+  const onChangeDarkMode = () => {
+    setDarkMode(!darkMode)
   }
 
-  const onChangePlayBool = (status: boolean) => {
-    setPlay(status);
-  };
+  const onChangePlay = () => { setPlay(!play) }
+
+  const onChangePlayBool = (status: boolean) => { setPlay(status) }
 
   const onChangeVolume = (event: Event, newValue: number | number[]) => {
     if (typeof newValue === "number") {
@@ -57,11 +80,19 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
     }
   };
 
-  const onChangeBotaoVolume = () => {
-    setBotaoVolume(!botaoVolume);
-  };
+  const onChangeBotaoVolume = () => { setBotaoVolume(!botaoVolume) }
+  
+  const onChangeBotaoPularIntro = (status: boolean) => { setBotaoPularIntro(status) }
+  
+  const handleBotaoPularIntro = () => { setBotaoPularIntroClick(!botaoPularIntroClick) }
+  const handleBotaoPularEncerramento = () => { setBotaoPularEncerramenroClick(!botaoPularEncerramentoClick) }
+
+  const onChangeBotaoPularEncerramento = (status: boolean) => { setBotaoPularEncerramento(status) }
 
   const onChangeVideo = (videoAtual: Video, acao: string) => {
+    localStorage.setItem("pularIntro", "false")
+    localStorage.setItem("pularEncerramento", "false")
+
     const posicao = videos.findIndex(v => v.urlVideo === videoAtual.urlVideo);
     if (acao === "next"){
       setVideoSelecionado(videos[posicao + 1])
@@ -75,13 +106,9 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
     }
   };
 
-  const onChangeFullScreen = () => {
-    setFullScreen(!fullScreen)
-  }
+  const onChangeFullScreen = () => { setFullScreen(!fullScreen) }
 
-  const onChangeLoop = () => {
-    setLoop(!loop)
-  }
+  const onChangeLoop = () => { setLoop(!loop) }
 
   useEffect(() => {
     const ultimoVideo = localStorage.getItem("ultimoVideo")
@@ -103,6 +130,11 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
         botaoVolume, onChangeBotaoVolume,
         fullScreen, onChangeFullScreen,
         loop, onChangeLoop,
+        botaoPularIntro, botaoPularIntroClick, 
+        onChangeBotaoPularIntro, handleBotaoPularIntro,
+        botaoPularEncerramento, botaoPularEncerramentoClick, 
+        onChangeBotaoPularEncerramento, handleBotaoPularEncerramento,
+        corPrimaria, corSecundaria, corInversa, onChangeDarkMode
       }}
     >
       {children}

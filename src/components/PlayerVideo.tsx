@@ -1,9 +1,10 @@
-import React, {  useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { HomeContext } from "@/app/context/HomeContext";
-import styles from './PlayerVideo.module.css'
+import styles from "./PlayerVideo.module.css";
+import Parametros from "../helpers/functions";
 
 interface PlayerVideoProps {
-  videoSrc: string; 
+  videoSrc: string;
   mute: boolean;
   volume: number;
 }
@@ -14,90 +15,140 @@ type Video = {
   description: string;
   urlVideo: string;
   image: string;
-  cover: string
-}
+  cover: string;
+};
 
-const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, volume }) => {
-    const videoRef = useRef<HTMLVideoElement>(null);
-    const { play, fullScreen, onChangeFullScreen, loop, onChangeVideo, onChangePlayBool  } = useContext(HomeContext)
+const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, volume, }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const {
+    play,
+    fullScreen,
+    onChangeFullScreen,
+    loop,
+    onChangeVideo,
+    onChangePlayBool,
+    onChangeBotaoPularIntro,
+    onChangeBotaoPularEncerramento,
+    botaoPularIntroClick,
+    botaoPularEncerramentoClick,
+    handleBotaoPularIntro,
+    handleBotaoPularEncerramento,
+  } = useContext(HomeContext);
 
-    // UseEffect para ficar monitorando o tempo de execução
-    useEffect(() => {
-      const video = videoRef.current;
-      
-      if (!video) return;
-      
-      const handleTimeUpdate = () => {
-        if(video.currentTime == video.duration) {
-          const ultimoVideo = localStorage.getItem("ultimoVideo");
-          if(ultimoVideo) {
-            const videoObj: Video = JSON.parse(ultimoVideo) as Video;
-            onChangeVideo(videoObj, "next")
-          }
-        } else if (video.currentTime == 0) {
-          video.play();
+  // UseEffect para ficar monitorando o tempo de execução
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (!video) return;
+
+    const handleTimeUpdate = () => {
+      if (video.currentTime == video.duration) {
+        const ultimoVideo = localStorage.getItem("ultimoVideo");
+        if (ultimoVideo) {
+          const videoObj: Video = JSON.parse(ultimoVideo) as Video;
+          onChangeVideo(videoObj, "next");
         }
-      };
+      } else if (video.currentTime == 0) {
+        video.play();
+      }
 
-      video.addEventListener("timeupdate", handleTimeUpdate);
-
-      // Cleanup ao desmontar o componente
-      return () => {
-        video.removeEventListener("timeupdate", handleTimeUpdate);
-      };
-
-    }, [])
-
-    useEffect(() => {
-      const video = videoRef.current;
+      // Controla a visibilidade do botão Pular Intro
+      if (
+        JSON.parse(Parametros.pegarParametro("skipIntro")) &&
+        Math.floor(video.currentTime) >= 2 &&
+        Math.floor(video.currentTime) <= Math.floor(video.duration) - 10 * 60 &&
+        !JSON.parse(JSON.parse(localStorage.getItem("pularIntro") ?? "false" ))
+      ) {
+        onChangeBotaoPularIntro(true);
+      } else {
+        onChangeBotaoPularIntro(false);
+      }
       
-      if (!video) return;
-
-      const handlePlayUpdate = () => {
-        onChangePlayBool(true)
+      // Controla a visibilidade do botão Pular Encerramento
+      if (
+        JSON.parse(Parametros.pegarParametro("skipClosing")) &&
+        Math.floor(video.currentTime) >= Math.floor(video.duration) - Math.floor(Parametros.pegarParametro("tempClosing")) &&
+        !JSON.parse(JSON.parse(localStorage.getItem("pularEncerramento") ?? "false" ))
+      ) {
+        onChangeBotaoPularEncerramento(true);
+      } else {
+        onChangeBotaoPularEncerramento(false);
       }
 
-      const handlePauseUpdate = () => {
-        onChangePlayBool(false)
+      // Ação quando clicar no botão de Pular Intro
+      if (botaoPularIntroClick) {
+        localStorage.setItem("pularIntro", "true");
+        onChangeBotaoPularIntro(false);
+        handleBotaoPularIntro();
+        video.currentTime = video.currentTime + Math.floor(Parametros.pegarParametro("durationIntro"));
       }
-
-      video.addEventListener("play", handlePlayUpdate)
-      video.addEventListener("pause", handlePauseUpdate)
-
-      return () => {
-        video.removeEventListener("play", handlePlayUpdate);
-        video.removeEventListener("pause", handlePauseUpdate);
-      };
-    }, [])
-    
-    
-    if (play) {
-      videoRef.current?.play();
-    } else {
-      videoRef.current?.pause();
-    }
-    
-    if(videoRef.current) {
-      videoRef.current.volume = volume;
-    }
-
-    // Função para alternar para fullscreen
-    if (videoRef.current && fullScreen) {
-      if (videoRef.current.requestFullscreen) {
-        videoRef.current.requestFullscreen();
-        onChangeFullScreen()
+      
+      // Ação quando clicar no botão de Pular Encerramenro
+      if (botaoPularEncerramentoClick) {
+        localStorage.setItem("pularEncerramento", "true");
+        onChangeBotaoPularEncerramento(false);
+        handleBotaoPularEncerramento();
+        video.currentTime = video.duration - 1;
       }
+    };
+
+    video.addEventListener("timeupdate", handleTimeUpdate);
+
+    // Cleanup ao desmontar o componente
+    return () => {
+      video.removeEventListener("timeupdate", handleTimeUpdate);
+    };
+  }, [botaoPularIntroClick, botaoPularEncerramentoClick]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (!video) return;
+
+    const handlePlayUpdate = () => {
+      onChangePlayBool(true);
+    };
+
+    const handlePauseUpdate = () => {
+      onChangePlayBool(false);
+    };
+
+    video.addEventListener("play", handlePlayUpdate);
+    video.addEventListener("pause", handlePauseUpdate);
+
+    return () => {
+      video.removeEventListener("play", handlePlayUpdate);
+      video.removeEventListener("pause", handlePauseUpdate);
+    };
+  }, []);
+
+  if (play) {
+    videoRef.current?.play();
+  } else {
+    videoRef.current?.pause();
+  }
+
+  if (videoRef.current) {
+    videoRef.current.volume = volume;
+  }
+
+  // Função para alternar para fullscreen
+  if (videoRef.current && fullScreen) {
+    if (videoRef.current.requestFullscreen) {
+      videoRef.current.requestFullscreen();
+      onChangeFullScreen();
     }
+  }
 
   return (
-    <div className="flex flex-col justify-center items-center" style={{ maxWidth: "100%", maxHeight: "100%"}}>
-      <video 
+    <div className="flex flex-col justify-center items-center" style={{ maxWidth: "100%", maxHeight: "100%" }} >
+      <video
         className={`player-video ${styles.player}`}
         ref={videoRef}
         width="100%"
-        controls
-        autoPlay = {false}
-        loop = {loop}
+        controls = {JSON.parse(Parametros.pegarParametro("displayControls"))}
+        autoPlay={false}
+        loop={loop}
         muted={mute}
         src={`${videoSrc}`} // Caminho do vídeo na pasta public
       >
