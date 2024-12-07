@@ -44,7 +44,7 @@ const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, volume, }) =>
     const handleTimeUpdate = () => {
       if (video.currentTime == video.duration) {
         if (typeof window === "undefined") return;
-        
+
         const ultimoVideo = localStorage.getItem("ultimoVideo");
         if (ultimoVideo) {
           const videoObj: Video = JSON.parse(ultimoVideo) as Video;
@@ -56,7 +56,7 @@ const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, volume, }) =>
 
       // Controla a visibilidade do botão Pular Intro
       if (
-        JSON.parse(Parametros.pegarParametro("skipIntro")) &&
+        JSON.parse(Parametros.pegarParametro("skipIntro") ?? "false") &&
         Math.floor(video.currentTime) >= 2 &&
         Math.floor(video.currentTime) <= Math.floor(video.duration) - 10 * 60 &&
         !JSON.parse(JSON.parse(localStorage.getItem("pularIntro") ?? "false" ))
@@ -68,8 +68,8 @@ const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, volume, }) =>
       
       // Controla a visibilidade do botão Pular Encerramento
       if (
-        JSON.parse(Parametros.pegarParametro("skipClosing")) &&
-        Math.floor(video.currentTime) >= Math.floor(video.duration) - Math.floor(Parametros.pegarParametro("tempClosing")) &&
+        JSON.parse(Parametros.pegarParametro("skipClosing") ?? "false") &&
+        Math.floor(video.currentTime) >= Math.floor(video.duration) - Math.floor(Parametros.pegarParametro("tempClosing") ?? "false") &&
         !JSON.parse(JSON.parse(localStorage.getItem("pularEncerramento") ?? "false" ))
       ) {
         onChangeBotaoPularEncerramento(true);
@@ -148,7 +148,7 @@ const PlayerVideo: React.FC<PlayerVideoProps> = ({ videoSrc, mute, volume, }) =>
         className={`player-video ${styles.player}`}
         ref={videoRef}
         width="100%"
-        controls = {JSON.parse(Parametros.pegarParametro("displayControls"))}
+        controls = {JSON.parse(Parametros.pegarParametro("displayControls") ?? "false")}
         autoPlay={false}
         loop={loop}
         muted={mute}

@@ -59,7 +59,7 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
   const [botaoPularIntroClick, setBotaoPularIntroClick] = useState(false)
   const [botaoPularEncerramento, setBotaoPularEncerramento] = useState(false)
   const [botaoPularEncerramentoClick, setBotaoPularEncerramenroClick] = useState(false)
-  const [darkMode, setDarkMode] = useState(JSON.parse(Parametros.pegarParametro("darkMode")) ?? false)
+  const [darkMode, setDarkMode] = useState(JSON.parse(Parametros.pegarParametro("darkMode") ?? "false"))
   const [corPrimaria, corSecundaria, corInversa] = 
     [darkMode ? Parametros.darkColors()[0].primaria : Parametros.lightColors()[0].primaria, 
       darkMode ? Parametros.darkColors()[0].secundaria : Parametros.lightColors()[0].secundaria, 
@@ -116,7 +116,7 @@ const HomeContextProvider = ({ children }: ProviderProps) => {
     if (typeof window !== "undefined") { 
       const ultimoVideo = localStorage.getItem("ultimoVideo")
       
-      if (ultimoVideo != null) {
+      if (ultimoVideo != null && ultimoVideo != undefined) {
         const ultimoVideoJSON = JSON.parse(ultimoVideo)
   
         onChangeVideo(ultimoVideoJSON, "load")
