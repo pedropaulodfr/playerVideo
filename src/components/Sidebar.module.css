@@ -64,11 +64,21 @@
 
 .label {
   display: block; 
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 5px;
   cursor: pointer;
 }
 
-.radio {
-  margin-right: 10px; 
+.buttonNovelas {
+  margin: 0px; 
   cursor: pointer;
+  color: #333;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.buttonNovelas:hover {
+  color: #fff;
+  background-color: #848484;
 }
