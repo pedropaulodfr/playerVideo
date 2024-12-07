@@ -3,7 +3,7 @@
 import { useContext, useState } from "react";
 import { HomeContext } from "./context/HomeContext";
 import { FaRegCirclePlay, FaRegCirclePause } from "react-icons/fa6";
-import { BiSkipNextCircle, BiSkipPreviousCircle } from "react-icons/bi";
+import { BiSkipNextCircle, BiSkipPreviousCircle, BiSolidVolumeFull, BiSolidVolumeLow, BiSolidVolume   } from "react-icons/bi";
 import { RiFullscreenFill, RiMoreFill  } from "react-icons/ri";
 import { TiArrowLoop } from "react-icons/ti";
 import { IoMdSettings } from "react-icons/io";
@@ -82,11 +82,15 @@ export default function Home() {
           <div className="cover-music" style={{width: "80vw"}}>
             <PlayerVideo videoSrc={videoSelecionado.urlVideo} mute={false} volume={volume} />
           </div>
-          <div className="description-music flex items-center" >
-            <label className={`${styles.label}`} style={{color: corSecundaria, width: '40px'}}>{Parametros.formatarTempo(videoRef?.current?.currentTime ?? 0)}</label>
-            <Slider className="slider-tempo" aria-label="Tempo" value={tempo * 100} onChange={handleSliderTempo} style={{color: corSecundaria}}/>
-            <label className={`${styles.label}`} style={{color: corSecundaria}}>{Parametros.formatarTempo(videoRef?.current?.duration ?? 0)}</label>
-          </div>
+          {videoRef?.current &&
+            <div className="description-music flex items-center mb-10" >
+              <label className={`${styles.label}`} style={{color: corSecundaria, width: '40px'}}>{Parametros.formatarTempo(videoRef?.current?.currentTime ?? 0)}</label>
+              <Box  className="flex min-w-screen " sx={{ width: "55%" }}>
+                <Slider className="slider-tempo" aria-label="Tempo" value={tempo * 100} onChange={handleSliderTempo} style={{color: corSecundaria}}/>
+              </Box>
+              <label className={`${styles.label}`} style={{color: corSecundaria}}>{Parametros.formatarTempo(videoRef?.current?.duration ?? 0)}</label>
+            </div>
+          }
           <div className="description-music">
             <h1 style={{fontSize: "1.3em", fontWeight: "bold", color: corPrimaria}}>{videoSelecionado.name}</h1>
             <h2 style={{fontSize: "1em", fontWeight: "normal", color: corPrimaria}}>{videoSelecionado.author}</h2>
@@ -102,14 +106,14 @@ export default function Home() {
             <button className="m-2" onClick={() => onChangeVideo(videoSelecionado, "next")}><BiSkipNextCircle color={corPrimaria} size={45} /></button>
             <button className="m-2" onClick={() => setMore(!more)}><RiMoreFill size={25} color={corPrimaria} /></button>
             {more && (
-              <>
+              <div className={`buttonsMore`}>
                 <button className="m-5" onClick={onChangeBotaoVolume}> 
-                  {(volume * 100) > 50 ? <VolumeUp style={{color: corPrimaria}} /> : volume != 0 ? <VolumeDown style={{color: corPrimaria}} /> : <VolumeMute style={{color: corPrimaria}} />}
+                  {(volume * 100) > 50 ? <BiSolidVolumeFull style={{color: corPrimaria}} size={25} /> : volume != 0 ? <BiSolidVolumeLow style={{color: corPrimaria}} size={25} /> : <BiSolidVolume style={{color: corPrimaria}} size={25} />}
                 </button>
-                <button onClick={onChangeLoop}><TiArrowLoop color={loop ? corInversa : corPrimaria} size={30} /></button>
+                <button className="m-5" onClick={onChangeLoop}><TiArrowLoop color={loop ? corInversa : corPrimaria} size={30} /></button>
                 <button className="m-5" onClick={onChangeFullScreen}><RiFullscreenFill color={corPrimaria} size={25} /></button>
                 <button className="m-5" onClick={() => setSettings(!settings)}><IoMdSettings  color={corPrimaria} size={25} /></button>
-              </>
+              </div>
             )}
           </div>
         </section>
@@ -118,7 +122,7 @@ export default function Home() {
             <Box sx={{ width: 200 }}>
               <Stack spacing={2} direction="row" sx={{ alignItems: "center", mb: 1 }} >
                 <button onClick={() => {onChangeVolume(new Event(''), 0);}}>
-                  {(volume * 100) > 50 ? <VolumeUp style={{color: corPrimaria}} /> : volume != 0 ? <VolumeDown style={{color: corPrimaria}} /> : <VolumeMute style={{color: corPrimaria}} />}
+                  {(volume * 100) > 50 ? <BiSolidVolumeFull style={{color: corPrimaria}} size={25} /> : volume != 0 ? <BiSolidVolumeLow style={{color: corPrimaria}} size={25} /> : <BiSolidVolume style={{color: corPrimaria}}  size={25} />}
                 </button>
                 <Slider aria-label="Volume" value={volume * 100} onChange={onChangeVolume} style={{color: corSecundaria}}/>
               </Stack>
