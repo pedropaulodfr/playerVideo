@@ -27,11 +27,11 @@ export default function Home() {
   const [more, setMore] = useState(false)
   const [settings, setSettings] = useState(false)
   const [pularIntro, setPularIntro] = useState(JSON.parse(Parametros.pegarParametro("skipIntro") ?? "false"))
-  const [duracaoIntro, setDuracaoIntro] = useState(Parametros.pegarParametro("duracaoIntro") ?? 0)
+  const [duracaoIntro, setDuracaoIntro] = useState(Parametros.pegarParametro("durationIntro") ?? 0)
   const [pularEncerramento, setPularEncerramento] = useState(JSON.parse(Parametros.pegarParametro("skipClosing") ?? "false"))
   const [tempoEncerramento, setTempoEncerramento] = useState(Parametros.pegarParametro("tempClosing") ?? 0)
   const [controlesPlayer, setControlesPlayer] = useState(JSON.parse(Parametros.pegarParametro("displayControls") ?? "false"))
-  const [darkMode, setDarkMode] = useState(JSON.parse(Parametros.pegarParametro("darkMode")  ?? "false"))
+  const [darkMode, setDarkMode] = useState(JSON.parse(Parametros.pegarParametro("darkMode") ?? "false"))
   
   if(typeof window !== "undefined") {
     if(localStorage.getItem("params") == undefined || localStorage.getItem("params") == null)
