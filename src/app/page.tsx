@@ -79,19 +79,19 @@ export default function Home() {
 
       <div className="flex flex-col justify-center items-center">
         <section className="info-music">
-          <div className="cover-music" style={{width: "80vw"}}>
+          <div className="cover-music 2xl:w-full">
             <PlayerVideo videoSrc={videoSelecionado.urlVideo} mute={false} volume={volume} />
           </div>
           {videoRef?.current &&
-            <div className="description-music flex items-center mb-10" >
+            <div className="flex items-center sm:pl-1 md:pl-1 lg:pl-0 xl:pl-0 2xl:pl-36 mb-10 4xl:pl-96" >
               <label className={`${styles.label}`} style={{color: corSecundaria, width: '40px'}}>{Parametros.formatarTempo(videoRef?.current?.currentTime ?? 0)}</label>
-              <Box  className="flex min-w-screen " sx={{ width: "55%" }}>
+              <Box className="flex min-w-screen max-sm:w-full sm:w-full md:w-full lg:w-10/12 2xl:w-7/12 4xl:w-9/12">
                 <Slider className="slider-tempo" aria-label="Tempo" value={tempo * 100} onChange={handleSliderTempo} style={{color: corSecundaria}}/>
               </Box>
               <label className={`${styles.label}`} style={{color: corSecundaria}}>{Parametros.formatarTempo(videoRef?.current?.duration ?? 0)}</label>
             </div>
           }
-          <div className="description-music">
+          <div className="description-music 2xl:pl-48">
             <h1 style={{fontSize: "1.3em", fontWeight: "bold", color: corPrimaria}}>{videoSelecionado.name}</h1>
             <h2 style={{fontSize: "1em", fontWeight: "normal", color: corPrimaria}}>{videoSelecionado.author}</h2>
             {botaoPularIntro && <button className="buttonsAdicionais" onClick={handleBotaoPularIntro}>Pular Intro</button>}
